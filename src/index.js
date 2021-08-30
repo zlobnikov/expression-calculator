@@ -4,7 +4,7 @@ function eval() {
 }
 
 function expressionCalculator(expr) {
-// write your solution here
+    // write your solution here
     const spaced = expr.trim().replace(/(\D)/g, ' $1 ');
     const result = spaced.trim().split(/\s+/);
 
@@ -41,7 +41,10 @@ function calcInBrackets(expr) {
             multiplyOrDivide(insideBrackets);
             sumOrSubtract(insideBrackets);
 
-            expr.splice(start, i + 1 - start, insideBrackets);
+            expr.splice(start, i + 1 - start, insideBrackets[0]);
+
+            i = -1;
+            // reset index and don't forget about increment
         }
     }
     return expr;
